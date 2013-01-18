@@ -8,14 +8,11 @@ import android.view.ViewGroup;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.example.myapp.R;
 
-public class SecondFragment extends SherlockFragment {
+public class FirstFragment extends SherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_second, container, false);
-		v.setClickable(true);
+		View v = inflater.inflate(R.layout.fragment_first, container, false);
 		return v;
 	}
-	
-
 }

@@ -13,6 +13,7 @@ public class FirstFragment extends SherlockFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_first, container, false);
+		v.setClickable(true);
 		return v;
 	}
 }
