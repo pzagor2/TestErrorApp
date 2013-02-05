@@ -21,6 +21,7 @@ public class MainActivity extends SlidingFragmentActivity implements MenuFragmen
 
     private ArrayList<SlidingMenuItem> menuItems;
 	private MenuFragment mFrag;
+	private Fragment oldFrag;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,13 +62,23 @@ public class MainActivity extends SlidingFragmentActivity implements MenuFragmen
 	{
 		if (fragment != getSupportFragmentManager().findFragmentById(R.id.fragment_container))
 		{
+			//old impleemntation
 			//change login fragment with forgot password fragment
 			FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 			// Replace whatever is in the fragment_container view with this fragment,
 			// and add the transaction to the back stack
-			transaction.replace(R.id.fragment_container, fragment);
+			//transaction.replace(R.id.fragment_container, fragment);
 			//transaction.addToBackStack(null);
+			//transaction.commit();
+			
+			//new implementation
+			if (oldFrag != null)
+				transaction.detach(oldFrag);
+			transaction.replace(R.id.fragment_container, fragment);
+			transaction.attach(fragment);
+			transaction.addToBackStack(null);
 			transaction.commit();
+			oldFrag = fragment;
 		}
 	}
 	
