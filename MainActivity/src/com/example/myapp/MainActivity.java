@@ -76,7 +76,7 @@ public class MainActivity extends SlidingFragmentActivity implements MenuFragmen
 				transaction.detach(oldFrag);
 			transaction.replace(R.id.fragment_container, fragment);
 			transaction.attach(fragment);
-			transaction.addToBackStack(null);
+			//transaction.addToBackStack(null);
 			transaction.commit();
 			oldFrag = fragment;
 		}
